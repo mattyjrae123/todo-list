@@ -11,6 +11,7 @@ I'll be using HTML, CSS and JS but also utilising node and webpack for developme
 - Design backend
 - Build UI with HTMl/CSS
 - Build functionality with JS
+- MVC pattern (controller knows about model and view, but model and view only know about themselves)
 
 ### Initial Project Scope:
 - Todo 'tasks' should have a title, description, dueDate and priority
@@ -22,6 +23,19 @@ I'll be using HTML, CSS and JS but also utilising node and webpack for developme
 
 ### Advanced Scope:
 - Data persistence using localStorage
+
+### Model
+- Store array of projects
+- Each project is an object containing a title and an array of tasks
+-  Each task is an object containing title, description, dueDate, priority and ID (ID for plumbing between task and UI element)
+
+### View
+- Generate HTML elements for project lists on page load, adding project or deleting project
+- Generate HTML elements for project tasks on page load (default project), adding task, deleting task, editing task, changing displayed project
+
+### Controller
+- Contains 'model' and 'view' objects and coordinates functionality of the site.
+- On load, start functions to generate project list and load default projects todo tasks.
 
 #### Rough design (ignore colours)
 
