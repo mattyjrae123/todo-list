@@ -92,8 +92,36 @@ header {
 }
 
 .todo-li > button {
-  border: 1px solid black;
+  border: 1px solid;
   border-radius: var(--li-border-radius);
+}
+
+.li-complete {
+  color: darkgreen;
+}
+
+.li-complete:hover {
+  cursor: pointer;
+  color: white;
+  background-color: darkgreen;
+}
+
+.li-complete:active {
+  border-color: black;
+}
+
+.li-delete {
+  color: red;
+}
+
+.li-delete:hover {
+  cursor: pointer;
+  color: white;
+  background-color: red;
+}
+
+.li-delete:active {
+  border-color: black;
 }
 
 .todo-li > div:first-of-type {
