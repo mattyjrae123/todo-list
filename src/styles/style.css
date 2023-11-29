@@ -175,12 +175,16 @@ footer > div {
 
 h1 {
   font-size: 5rem;
+  margin: 0.5rem auto;
+  text-align: center;
 }
 
 h2 {
   font-size: 2.5rem;
+  margin: 0.5rem 2rem;
 }
 
 h3 {
   font-size: 1.5rem;
+  margin: 0.25rem 1rem;
 }
