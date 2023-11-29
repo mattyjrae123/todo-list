@@ -199,3 +199,13 @@ h3:active {
 .current-list {
   border: 2px solid lightseagreen;
 }
+
+.li-inactive {
+  border-color: grey;
+  background-color: lightgrey;
+}
+
+.li-inactive > div {
+  color: grey;
+  background-color: lightgrey;
+}
