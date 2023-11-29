@@ -65,6 +65,28 @@ header {
 footer {
   grid-column: 1 / 3;
   grid-row: 4 / 5;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+#footer-divider {
+  border: 1px solid grey;
+  height: 75%;
+}
+
+footer > div {
+  font-size: 1.5rem;
+}
+
+#github-repo-link {
+  text-decoration: none;
+}
+
+#github-repo-link:hover {
+  text-decoration: underline;
 }
 
 h1 {
