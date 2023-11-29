@@ -15,6 +15,12 @@ html {
   box-sizing: inherit;
 }
 
+button {
+  /* remove default button styles */
+  background: none;
+  border: none;
+}
+
 header, div, footer {
   background-color: white;
 }
