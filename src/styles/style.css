@@ -181,4 +181,21 @@ h2 {
 h3 {
   font-size: 1.5rem;
   margin: 0.25rem 1rem;
+  padding: 0.25rem;
+  border: 2px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+h3:hover {
+  background-color: lightseagreen;
+}
+
+h3:active {
+  background-color: black;
+  color: white;
+}
+
+.current-list {
+  border: 2px solid lightseagreen;
 }
