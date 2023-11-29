@@ -31,7 +31,7 @@ body {
   background-color: brown;
 
   display: grid;
-  grid-template-columns: max-content 1fr;
+  grid-template-columns: minmax(20%, max-content) 1fr;
   grid-template-rows: min-content min-content 1fr min-content;
   gap: 5px;
   padding: 5px;
