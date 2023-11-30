@@ -66,12 +66,12 @@ header {
   border: 1px solid grey;
 }
 
-#add-btn:hover {
+.add-btn:hover {
   background-color: lightgray;
   cursor: pointer;
 }
 
-#add-btn:active{
+.add-btn:active{
   color: white;
   background-color: black;
 }
