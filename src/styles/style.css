@@ -19,7 +19,7 @@ html {
 
 button {
   background: none;
-  border: none;
+  border-radius: var(--li-border-radius);
 }
 
 header, div, footer {
