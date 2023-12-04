@@ -52,6 +52,13 @@ header {
   overflow-y: scroll;
 }
 
+#sidebar-divider {
+  background-color: grey;
+  height: 0.1rem;
+  width: 95%;
+  margin: 0 auto;
+}
+
 #main-content {
   padding: 0.5rem;
   grid-column: 2 / 3;
