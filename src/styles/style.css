@@ -17,11 +17,6 @@ html {
   box-sizing: inherit;
 }
 
-button, input[type="button"] {
-  background: none;
-  border-radius: var(--li-border-radius);
-}
-
 header, div, footer {
   background-color: white;
 }
@@ -123,40 +118,6 @@ header {
   background-color: lightgrey;
 }
 
-.li-complete, .li-delete {
-  border: 1px solid;
-  border-radius: var(--li-border-radius);
-  height: min-content;
-}
-
-.li-complete {
-  color: darkgreen;
-}
-
-.li-complete:hover {
-  cursor: pointer;
-  color: white;
-  background-color: darkgreen;
-}
-
-.li-complete:active {
-  border-color: black;
-}
-
-.li-delete {
-  color: red;
-}
-
-.li-delete:hover {
-  cursor: pointer;
-  color: white;
-  background-color: red;
-}
-
-.li-delete:active {
-  border-color: black;
-}
-
 .todo-li > div:first-of-type {
   padding-left: 0;
 }
@@ -239,36 +200,6 @@ footer > div {
   font-size: 2rem;
 }
 
-.modal-add-btn {
-  border: 1px solid green;
-  border-radius: var(--li-border-radius);
-}
-
-.modal-add-btn:hover {
-  cursor: pointer;
-  background-color: green;
-}
-
-.modal-add-btn:active {
-  color: white;
-  background-color: black;
-}
-
-.modal-close-btn {
-  border: 1px solid red;
-  border-radius: var(--li-border-radius);
-}
-
-.modal-close-btn:hover {
-  cursor: pointer;
-  background-color: red;
-}
-
-.modal-close-btn:active {
-  color: white;
-  background-color: black;
-}
-
 .hidden {
   display: none !important;
 }
@@ -310,4 +241,47 @@ h3:active {
 
 .current-list {
   border: 2px solid lightseagreen;
+}
+
+/*
+  BUTTONS
+*/
+
+button, input[type="button"] {
+  background: none;
+  border-radius: var(--li-border-radius);
+}
+
+.green-btn, .red-btn {
+  border: 1px solid;
+  border-radius: var(--li-border-radius);
+  height: min-content;
+}
+
+.green-btn {
+  color: darkgreen;
+}
+
+.green-btn:hover {
+  cursor: pointer;
+  color: white;
+  background-color: darkgreen;
+}
+
+.green-btn:active {
+  border-color: black;
+}
+
+.red-btn {
+  color: red;
+}
+
+.red-btn:hover {
+  cursor: pointer;
+  color: white;
+  background-color: red;
+}
+
+.red-btn:active {
+  border-color: black;
 }
