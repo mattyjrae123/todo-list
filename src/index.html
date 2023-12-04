@@ -8,81 +8,89 @@
 </head>
 
 <body>
-  <header>
-    <h1>Todo</h1>
-  </header>
-  <div id="sidebar">
-    <h2>Lists</h2>
-    <h3>Example 1</h3>
-    <h3>Example example 2</h3>
-    <h3 class="current-list">Example 3</h3>
-    <h3>Example 4</h3>
-    <h3>Example 1</h3>
-    <h3>Example example 2</h3>
-    <h3>Example 3</h3>
-    <h3>Example 4</h3>
-    <h3>Example 1</h3>
-    <h3>Example example 2</h3>
-    <h3>Example 3</h3>
-    <h3>Example 4</h3>
-    <h3>Example 1</h3>
-    <h3>Example example 2</h3>
-    <h3>Example 3</h3>
-    <h3>Example 4</h3>
-    <h3>Example 1</h3>
-    <h3>Example example 2</h3>
-    <h3>Example 3</h3>
-    <h3>Example 4</h3>
-    <button class="add-btn">+ add list</button>
+  <div id="body-wrapper">
+    <header>
+      <h1>Todo</h1>
+    </header>
+    <div id="sidebar">
+      <h2>Lists</h2>
+      <h3>Example 1</h3>
+      <h3>Example example 2</h3>
+      <h3 class="current-list">Example 3</h3>
+      <h3>Example 4</h3>
+      <h3>Example 1</h3>
+      <h3>Example example 2</h3>
+      <h3>Example 3</h3>
+      <h3>Example 4</h3>
+      <h3>Example 1</h3>
+      <h3>Example example 2</h3>
+      <h3>Example 3</h3>
+      <h3>Example 4</h3>
+      <h3>Example 1</h3>
+      <h3>Example example 2</h3>
+      <h3>Example 3</h3>
+      <h3>Example 4</h3>
+      <h3>Example 1</h3>
+      <h3>Example example 2</h3>
+      <h3>Example 3</h3>
+      <h3>Example 4</h3>
+      <button class="add-btn">+ add list</button>
+    </div>
+    <div id="main-content">
+      <button class="add-btn">+ add item</button>
+      <ul id="todo-list">
+        <li class="todo-li">
+          <div class="li-priority">High</div>
+          <div class="li-title">Title</div>
+          <div class="li-description">Descriptio nnnnnnnnn nnnnnnnnnnn nnnnnnnnn nnnnnnnnnn</div>
+          <div class="li-date">01/01/2023</div><button class="li-complete">✓</button><button
+            class="li-delete">X</button>
+        </li>
+        <li class="todo-li li-inactive">
+          <div class="li-priority">low</div>
+          <div class="li-title">Tle</div>
+          <div class="li-description">Descasdription</div>
+          <div class="li-date">01/01/2023</div><button class="li-complete">✓</button><button
+            class="li-delete">X</button>
+        </li>
+        <li class="todo-li">
+          <div class="li-priority">Priority</div>
+          <div class="li-title">Title</div>
+          <div class="li-description">Description</div>
+          <div class="li-date">01/01/2023</div><button class="li-complete">✓</button><button
+            class="li-delete">X</button>
+        </li>
+        <li class="todo-li">
+          <div class="li-priority">Priority</div>
+          <div class="li-title">Title</div>
+          <div class="li-description">Description</div>
+          <div class="li-date">01/01/2023</div><button class="li-complete">✓</button><button
+            class="li-delete">X</button>
+        </li>
+        <li class="todo-li">
+          <div class="li-priority">Priority</div>
+          <div class="li-title">Title</div>
+          <div class="li-description">Description</div>
+          <div class="li-date">01/01/2023</div><button class="li-complete">✓</button><button
+            class="li-delete">X</button>
+        </li>
+        <li class="todo-li">
+          <div class="li-priority">Priority</div>
+          <div class="li-title">Title</div>
+          <div class="li-description">Description</div>
+          <div class="li-date">01/01/2023</div><button class="li-complete">✓</button><button
+            class="li-delete">X</button>
+        </li>
+      </ul>
+    </div>
+    <footer>
+      <div>Created by M. Rae</div>
+      <div id="footer-divider"></div>
+      <div><a id="github-repo-link" href="https://github.com/mattyjrae123/todo-list" target="_blank">View Code</a></div>
+    </footer>
   </div>
-  <div id="main-content">
-    <button class="add-btn">+ add item</button>
-    <ul id="todo-list">
-      <li class="todo-li">
-        <div class="li-priority">High</div>
-        <div class="li-title">Title</div>
-        <div class="li-description">Descriptio nnnnnnnnn nnnnnnnnnnn nnnnnnnnn nnnnnnnnnn</div>
-        <div class="li-date">01/01/2023</div><button class="li-complete">✓</button><button class="li-delete">X</button>
-      </li>
-      <li class="todo-li li-inactive">
-        <div class="li-priority">low</div>
-        <div class="li-title">Tle</div>
-        <div class="li-description">Descasdription</div>
-        <div class="li-date">01/01/2023</div><button class="li-complete">✓</button><button class="li-delete">X</button>
-      </li>
-      <li class="todo-li">
-        <div class="li-priority">Priority</div>
-        <div class="li-title">Title</div>
-        <div class="li-description">Description</div>
-        <div class="li-date">01/01/2023</div><button class="li-complete">✓</button><button class="li-delete">X</button>
-      </li>
-      <li class="todo-li">
-        <div class="li-priority">Priority</div>
-        <div class="li-title">Title</div>
-        <div class="li-description">Description</div>
-        <div class="li-date">01/01/2023</div><button class="li-complete">✓</button><button class="li-delete">X</button>
-      </li>
-      <li class="todo-li">
-        <div class="li-priority">Priority</div>
-        <div class="li-title">Title</div>
-        <div class="li-description">Description</div>
-        <div class="li-date">01/01/2023</div><button class="li-complete">✓</button><button class="li-delete">X</button>
-      </li>
-      <li class="todo-li">
-        <div class="li-priority">Priority</div>
-        <div class="li-title">Title</div>
-        <div class="li-description">Description</div>
-        <div class="li-date">01/01/2023</div><button class="li-complete">✓</button><button class="li-delete">X</button>
-      </li>
-    </ul>
-  </div>
-  <footer>
-    <div>Created by M. Rae</div>
-    <div id="footer-divider"></div>
-    <div><a id="github-repo-link" href="https://github.com/mattyjrae123/todo-list" target="_blank">View Code</a></div>
-  </footer>
 
-  <div id="modal-bg"></div>
+  <!-- <div id="modal-bg"></div> -->
 </body>
 
 </html>
