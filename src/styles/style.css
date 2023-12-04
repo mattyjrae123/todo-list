@@ -237,18 +237,18 @@ h3:active {
   BUTTONS
 */
 
-button, input[type="button"] {
+button {
   background: none;
   border-radius: var(--li-border-radius);
   border: 1px solid;
 }
 
-button:hover, input[type="button"]:hover {
+button:hover {
   cursor: pointer;
   color: white;
 }
 
-button:active, input[type="button"]:active {
+button:active{
   border-color: black;
 }
 
