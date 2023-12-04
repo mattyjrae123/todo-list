@@ -221,10 +221,12 @@ footer > div {
 }
 
 .modal {
-  background-color: white;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  width: 25rem;
+
+  background-color: white;
 
   border-radius: var(--li-border-radius);
   padding: 0.5rem;
