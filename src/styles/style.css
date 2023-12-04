@@ -17,7 +17,7 @@ html {
   box-sizing: inherit;
 }
 
-button {
+button, input[type="button"] {
   background: none;
   border-radius: var(--li-border-radius);
 }
@@ -208,7 +208,7 @@ footer > div {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-#modal-wrapper {
+.modal-wrapper {
   position: fixed;
   top: 0;
   width: 100%;
@@ -218,6 +218,57 @@ footer > div {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.modal {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  border-radius: var(--li-border-radius);
+  padding: 0.5rem;
+
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+.modal > legend {
+  float: left; /* positions legend INSIDE of fieldset */
+  font-size: 2rem;
+}
+
+.modal-add-btn {
+  border: 1px solid green;
+  border-radius: var(--li-border-radius);
+}
+
+.modal-add-btn:hover {
+  cursor: pointer;
+  background-color: green;
+}
+
+.modal-add-btn:active {
+  color: white;
+  background-color: black;
+}
+
+.modal-close-btn {
+  border: 1px solid red;
+  border-radius: var(--li-border-radius);
+}
+
+.modal-close-btn:hover {
+  cursor: pointer;
+  background-color: red;
+}
+
+.modal-close-btn:active {
+  color: white;
+  background-color: black;
+}
+
+.hidden {
+  display: none !important;
 }
 
 /*

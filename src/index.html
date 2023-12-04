@@ -91,15 +91,37 @@
   </div>
 
   <div id="modal-bg"></div>
-  <div id="modal-wrapper">
-    <form id="modal-add-list">
-      <fieldset>
+  <div class="modal-wrapper hidden">
+    <form>
+      <fieldset class="modal">
         <legend>New Todo List</legend>
 
         <label for="new-list-title">Title</label>
         <input type="text" id="new-list-title" placeholder="e.g. shopping list...">
-        <button class="modal-add-btn">Add</button>
-        <button class="modal-close-btn">Cancel</button>
+        <input type="button" class="modal-add-btn" value="Add">
+        <input type="button" class="modal-close-btn" value="Cancel">
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-wrapper">
+    <form>
+      <fieldset class="modal">
+        <legend>New Todo</legend>
+
+        <label for="td-priority">Priority</label>
+        <select id="td-priority">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+        <label for="td-title">Title</label>
+        <input type="text" id="td-title" placeholder="clean fridge...">
+        <label for="td-description">Description</label>
+        <textarea id="td-description"></textarea>
+        <label for="td-date">Date</label>
+        <input type="date">
+        <input type="button" value="Add" class="modal-add-btn">
+        <input type="button" value="Close" class="modal-close-btn">
       </fieldset>
     </form>
   </div>
