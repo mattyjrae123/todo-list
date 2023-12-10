@@ -70,9 +70,6 @@ header {
   background-color: var(--beige);
 
   overflow-y: scroll;
-
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 
 /* Hide scrollbar (Chrome, Safari, Opera) */
