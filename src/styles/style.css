@@ -51,9 +51,15 @@ header {
 #sidebar {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
-  overflow-y: scroll;
   background-color: var(--brown);
   border-right: 2px solid;
+
+  /* prevent grid item expanding when overflowing */
+  min-height: 0;
+
+  /* allows #sidebar-list-container to scroll */
+  display: flex;
+  flex-direction: column;
 }
 
 #sidebar-divider {
@@ -61,6 +67,10 @@ header {
   height: 0.1rem;
   width: 95%;
   margin: 0 auto;
+}
+
+#sidebar-list-container {
+  overflow-y: scroll;
 }
 
 #main-content {
@@ -73,12 +83,12 @@ header {
 }
 
 /* Hide scrollbar (Chrome, Safari, Opera) */
-#main-content::-webkit-scrollbar, #sidebar::-webkit-scrollbar {
+#main-content::-webkit-scrollbar, #sidebar-list-container::-webkit-scrollbar {
   display: none;
 }
 
 /* Hide scrollbar IE, Edge, Firefox */
-#main-content, #sidebar {
+#main-content, #sidebar-list-container {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
