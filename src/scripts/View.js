@@ -5,8 +5,16 @@
  * 
  * M Rae 11/12/2023
  */
-const View = () => {
-  console.log("View()");
-}
+const View = (() => {
+  
+  const test = () => {
+    console.log("View.test()")
+  }
+
+  return {
+    test
+  }
+  
+})();
 
 export default View;

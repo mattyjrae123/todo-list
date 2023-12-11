@@ -5,8 +5,16 @@
  * 
  * M Rae 11/12/2023
  */
-const Controller = () => {
-  console.log("Controller()");
-}
+const Controller = (() => {
+
+  const test = () => {
+    console.log("Controller.test()");
+  }
+
+  return {
+    test
+  }
+  
+})();
 
 export default Controller;
