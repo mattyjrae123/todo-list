@@ -7,14 +7,8 @@
  */
 const Controller = (() => {
 
-  const test = () => {
-    console.log("Controller.test()");
-  }
+  return {}
 
-  return {
-    test
-  }
-  
 })();
 
 export default Controller;
