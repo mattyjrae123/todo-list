@@ -9,7 +9,7 @@ Model.addProject("First");
 Model.addProject("SeCOND");
 console.log(Model.getProjects());
 Model.addItem(1, "Pirority", "TiTle", "BIG DESCRIPToon", "01/01/2001");
-
+Model.addItem(1, "Pirority", "TiTle", "BIG DESCRIPToon", "01/01/2001");
 console.log(Model.getProjects());
 
 

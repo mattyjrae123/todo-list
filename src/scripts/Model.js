@@ -73,7 +73,10 @@ const Model = (() => {
       return false;
     }
 
+    const id = generateTodoId(projectIndex);
+    
     const todo = {
+      id,
       priority,
       title,
       description,
@@ -82,7 +85,18 @@ const Model = (() => {
     };
 
     projects[projectIndex].todos.push(todo);
+    generateTodoId(projectIndex);
     return true;
+  }
+
+  const generateTodoId = (projectIndex) => {
+    const todos = projects[projectIndex].todos;
+
+    if (todos.length <= 0) {
+      return 1;
+    }
+
+    return todos[todos.length-1].id + 1;
   }
 
   return {
