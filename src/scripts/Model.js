@@ -52,8 +52,25 @@ const Model = (() => {
     };
 
     _projects[projectIndex].todos.push(todo);
-    _generateTodoId(projectIndex);
     return true;
+  }
+
+  const deleteItem = (projectId, itemId) => {
+    const projectIndex = _getProjectIndex(projectId);
+
+    if (projectIndex <= -1) {
+      console.error("deleteItem: projectId invalid");
+      return;
+    }
+
+    const itemIndex = _getItemIndex(projectIndex, itemId);
+
+    if (itemIndex <= -1) {
+      console.error("deleteItem: itemId invalid");
+      return;
+    }
+
+    _projects[projectIndex].todos.splice(itemIndex, 1);
   }
 
   const _generateProjectId = () => {
@@ -87,6 +104,20 @@ const Model = (() => {
     return -1;
   }
 
+  const _getItemIndex = (projectIndex, itemId) => {
+    if (!(typeof itemId === 'number' || itemId instanceof Number)) {
+      return -1;
+    }
+    const todos = _projects[projectIndex].todos;
+    for (let i = 0; i < todos.length; i++) {
+      if (todos[i].id === itemId) {
+        return i;
+      }
+    }
+
+    return -1;
+  }
+
   const _stringIsValid = (input) => {
     if (!(typeof input === 'string' || input instanceof String)) {
       return false;
@@ -102,7 +133,8 @@ const Model = (() => {
   return {
     addProject,
     getProjects,
-    addItem
+    addItem,
+    deleteItem
   }
 
 })();
