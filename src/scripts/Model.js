@@ -9,6 +9,15 @@ const Model = (() => {
   const projects = [];
 
   const addProject = (newTitle) => {
+    if (!(typeof newTitle === 'string' || newTitle instanceof String)) {
+      console.error("addProject() parameter not of type String");
+      return;
+    }
+    if (newTitle.length <= 0) {
+      console.error("addProject() parameter length <= 0");
+      return;
+    };
+
     let newID;
     if (projects.length <= 0) {
       newID = 1;
@@ -24,7 +33,7 @@ const Model = (() => {
   }
 
   const getProjects = () => {
-    return projects;
+    return [...projects];
   }
 
   return {
