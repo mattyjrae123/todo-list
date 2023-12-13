@@ -9,27 +9,37 @@ const Model = (() => {
   const projects = [];
 
   const addProject = (newTitle) => {
-    if (!(typeof newTitle === 'string' || newTitle instanceof String)) {
-      console.error("addProject() parameter not of type String");
+    if (!strInputValid(newTitle)) {
+      console.error('addProject string parameter invalid');
       return;
     }
-    if (newTitle.length <= 0) {
-      console.error("addProject() parameter length <= 0");
-      return;
-    };
 
-    let newID;
-    if (projects.length <= 0) {
-      newID = 1;
-    } else {
-      newID = projects[projects.length - 1].id + 1;
-    }
+    const newID = generateID();
 
     projects.push({
       id: newID,
       title: newTitle,
       items: []
     });
+  }
+
+  const generateID = () => {
+    if (projects.length <= 0) {
+      return 1;
+    }
+    return projects[projects.length - 1].id + 1;
+  }
+
+  const strInputValid = (input) => {
+    if (!(typeof input === 'string' || input instanceof String)) {
+      return false;
+    }
+
+    if (input.length <= 0) {
+      return false;
+    }
+
+    return true;
   }
 
   const getProjects = () => {
