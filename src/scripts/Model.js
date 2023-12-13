@@ -23,41 +23,8 @@ const Model = (() => {
     });
   }
 
-  const _generateProjectId = () => {
-    if (_projects.length <= 0) {
-      return 1;
-    }
-    return _projects[_projects.length - 1].id + 1;
-  }
-
-  const _stringIsValid = (input) => {
-    if (!(typeof input === 'string' || input instanceof String)) {
-      return false;
-    }
-
-    if (input.length <= 0) {
-      return false;
-    }
-
-    return true;
-  }
-
   const getProjects = () => {
     return [..._projects];
-  }
-
-  const _getProjectIndex = (id) => {
-    if (!(typeof id === 'number' || id instanceof Number)) {
-      return -1;
-    }
-
-    for (let i = 0; i < _projects.length; i++) {
-      if (_projects[i].id === id) {
-        return i;
-      }
-    }
-
-    return -1;
   }
 
   const addItem = (projectId, priority, title, description, date) => {
@@ -89,6 +56,13 @@ const Model = (() => {
     return true;
   }
 
+  const _generateProjectId = () => {
+    if (_projects.length <= 0) {
+      return 1;
+    }
+    return _projects[_projects.length - 1].id + 1;
+  }
+
   const _generateTodoId = (projectIndex) => {
     const todos = _projects[projectIndex].todos;
 
@@ -97,6 +71,32 @@ const Model = (() => {
     }
 
     return todos[todos.length - 1].id + 1;
+  }
+
+  const _getProjectIndex = (id) => {
+    if (!(typeof id === 'number' || id instanceof Number)) {
+      return -1;
+    }
+
+    for (let i = 0; i < _projects.length; i++) {
+      if (_projects[i].id === id) {
+        return i;
+      }
+    }
+
+    return -1;
+  }
+
+  const _stringIsValid = (input) => {
+    if (!(typeof input === 'string' || input instanceof String)) {
+      return false;
+    }
+
+    if (input.length <= 0) {
+      return false;
+    }
+
+    return true;
   }
 
   return {
