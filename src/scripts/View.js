@@ -8,14 +8,14 @@
 const View = (() => {
 
   const _modalBg = document.querySelector("#modal-bg");
-  
+
   const _listModalBtn = document.querySelector("#list-modal-btn");
   const _listModal = document.querySelector("#list-modal");
-  const _listCancelBtn = document.querySelector("#list-add-cancel");
+  const _listCancelBtn = document.querySelector("#list-cancel-btn");
 
   const _todoModalBtn = document.querySelector("#todo-modal-btn");
   const _todoModal = document.querySelector("#todo-modal");
-  const _todoCancelBtn = document.querySelector("#todo-add-cancel");
+  const _todoCancelBtn = document.querySelector("#todo-cancel-btn");
 
   const initEventListeners = (projectsExist) => {
     _listModalBtn.addEventListener("click", () => {
