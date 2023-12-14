@@ -13,17 +13,23 @@ const View = (() => {
   const listAddModal = document.querySelector("#list-add-modal");
   const itemAddModal = document.querySelector("#item-add-modal");
 
-  listAddBtn
-  .addEventListener("click", () => {
-    modalBg.classList.remove("hidden");
-    listAddModal.classList.remove("hidden");
-  });
+  const initEventListeners = () => {
+    listAddBtn
+      .addEventListener("click", () => {
+        modalBg.classList.remove("hidden");
+        listAddModal.classList.remove("hidden");
+      });
 
-  itemAddBtn
-  .addEventListener("click", () => {
-    modalBg.classList.remove("hidden");
-    itemAddModal.classList.remove("hidden");
-  });
+    itemAddBtn
+      .addEventListener("click", () => {
+        modalBg.classList.remove("hidden");
+        itemAddModal.classList.remove("hidden");
+      });
+  }
+
+  return {
+    initEventListeners
+  }
 
 })();
 

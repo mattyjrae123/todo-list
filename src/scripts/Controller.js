@@ -17,6 +17,8 @@ const Controller = (() => {
 
     console.log(Model.getProjects());
     console.log(Model.getTodos(1));
+
+    View.initEventListeners();
   }
 
   return {
