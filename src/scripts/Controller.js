@@ -17,8 +17,19 @@ const Controller = (() => {
 
   const addProjectHandler = (title) => {
     if (Model.addProject(title)) {
-      View.displayProjects(Model.getProjects());
+      _updateView();
     }
+  }
+
+  const deleteProjectHandler = (id) => {
+    if (Model.deleteProject(id)) {
+      _updateView();
+    }
+  }
+
+  const _updateView = () => {
+    View.displayProjects(Model.getProjects());
+    View.bindDeleteProjectHandlers(deleteProjectHandler);
   }
 
   return {

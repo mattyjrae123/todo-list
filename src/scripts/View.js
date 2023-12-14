@@ -52,6 +52,17 @@ const View = (() => {
     });
   }
 
+  const bindDeleteProjectHandlers = (handler) => {
+    const projectDeleteButtons = document.querySelectorAll(".list-delete-btn");
+
+    for (const button of projectDeleteButtons) {
+      button.addEventListener("click", () => {
+        const id = button.getAttribute("data-id");
+        handler(id);
+      });
+    }
+  }
+
   const displayProjects = (projects) => {
     _sidebarContainer.textContent = "";
     projects.forEach((project) => {
@@ -63,6 +74,7 @@ const View = (() => {
       wrapper.classList.add("project-wrapper");
       button.classList.add("list-delete-btn");
       button.classList.add("red-btn");
+      button.setAttribute("data-id", project.id);
 
       title.textContent = project.title;
       button.textContent = "x";
@@ -77,6 +89,7 @@ const View = (() => {
   return {
     initEventListeners,
     bindAddProjectHandler,
+    bindDeleteProjectHandlers,
     displayProjects
   }
 

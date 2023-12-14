@@ -25,6 +25,18 @@ const Model = (() => {
     return true;
   }
 
+  const deleteProject = (id) => {
+    id = Number(id);
+    for (let i = 0; i < _projects.length; i++) {
+      if (_projects[i].id === id) {
+        _projects.splice(i, 1);
+        return true;
+      }
+    }
+
+    return false;
+  }
+
   const getProjects = () => {
     return [..._projects];
   }
@@ -148,6 +160,7 @@ const Model = (() => {
 
   return {
     addProject,
+    deleteProject,
     getProjects,
     projectsExist,
     getTodos,
