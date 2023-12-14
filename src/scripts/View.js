@@ -19,24 +19,10 @@ const View = (() => {
   const _todoModal = document.querySelector("#todo-modal");
   const _todoCancelBtn = document.querySelector("#todo-cancel-btn");
 
-  const initEventListeners = (projectsExist, addProject, getProjects) => {
+  const initEventListeners = () => {
     _listModalBtn.addEventListener("click", () => {
       _modalBg.classList.remove("hidden");
       _listModal.classList.remove("hidden");
-    });
-
-    _listAddBtn.addEventListener("click", () => {
-      const input = document.querySelector("#new-list-title");
-      
-      if (input.value.length <= 0) {
-        console.error("New list title is too short");
-        return;
-      }
-
-      addProject(input.value);
-      input.value = "";
-
-      _displayProjects(getProjects());
     });
 
     _listCancelBtn
@@ -48,11 +34,6 @@ const View = (() => {
 
     _todoModalBtn
       .addEventListener("click", () => {
-        if (!projectsExist()) {
-          window.alert("You must create a project first!");
-          return;
-        }
-        
         _modalBg.classList.remove("hidden");
         _todoModal.classList.remove("hidden");
       });
@@ -63,7 +44,15 @@ const View = (() => {
     });
   }
 
-  const _displayProjects = (projects) => {
+  const bindAddProjectHandler = (handler) => {
+    _listAddBtn.addEventListener("click", () => {
+      const element = document.querySelector("#new-list-title");
+      handler(element.value);
+      element.value = "";
+    });
+  }
+
+  const displayProjects = (projects) => {
     _sidebarContainer.textContent = "";
     projects.forEach((project) => {
       const projectHTML = document.createElement("h3");
@@ -73,7 +62,9 @@ const View = (() => {
   }
 
   return {
-    initEventListeners
+    initEventListeners,
+    bindAddProjectHandler,
+    displayProjects
   }
 
 })();

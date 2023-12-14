@@ -11,15 +11,14 @@ import Model from "./Model";
 const Controller = (() => {
 
   const start = () => {
-    // Model.addProject('First');
-    // Model.addProject('Second');
-    // Model.addItem(1, 'low', 'example1', 'example1111111', '12/02/23');
+    View.initEventListeners();
+    View.bindAddProjectHandler(addProjectHandler);
+  }
 
-    // console.log(Model.getProjects());
-    // console.log(Model.getTodos(1));
-
-    View.initEventListeners(Model.projectsExist, Model.addProject, Model.getProjects);
-    // console.log(Model.getProjects().length);
+  const addProjectHandler = (title) => {
+    if (Model.addProject(title)) {
+      View.displayProjects(Model.getProjects());
+    }
   }
 
   return {

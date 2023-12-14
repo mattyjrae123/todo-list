@@ -11,7 +11,7 @@ const Model = (() => {
   const addProject = (title) => {
     if (!_stringIsValid(title)) {
       console.error('addProject string parameter invalid');
-      return;
+      return false;
     }
 
     const id = _generateProjectId();
@@ -21,6 +21,8 @@ const Model = (() => {
       title,
       todos: []
     });
+
+    return true;
   }
 
   const getProjects = () => {
