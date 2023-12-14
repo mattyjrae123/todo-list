@@ -8,28 +8,29 @@
 const View = (() => {
 
   const _modalBg = document.querySelector("#modal-bg");
-  const _listAddModalBtn = document.querySelector("#list-add-btn");
-  const _listAddModal = document.querySelector("#list-add-modal");
+  
+  const _listModalBtn = document.querySelector("#list-modal-btn");
+  const _listModal = document.querySelector("#list-modal");
   const _listCancelBtn = document.querySelector("#list-add-cancel");
 
-  const _itemAddModalBtn = document.querySelector("#item-add-btn");
-  const _itemAddModal = document.querySelector("#item-add-modal");
-  const _itemCancelBtn = document.querySelector("#item-add-cancel");
+  const _todoModalBtn = document.querySelector("#todo-modal-btn");
+  const _todoModal = document.querySelector("#todo-modal");
+  const _todoCancelBtn = document.querySelector("#todo-add-cancel");
 
   const initEventListeners = (projectsExist) => {
-    _listAddModalBtn.addEventListener("click", () => {
+    _listModalBtn.addEventListener("click", () => {
       _modalBg.classList.remove("hidden");
-      _listAddModal.classList.remove("hidden");
+      _listModal.classList.remove("hidden");
     });
 
     _listCancelBtn
       .addEventListener("click", () => {
         _modalBg.classList.add("hidden");
 
-        _listAddModal.classList.add("hidden");
+        _listModal.classList.add("hidden");
       })
 
-    _itemAddModalBtn
+    _todoModalBtn
       .addEventListener("click", () => {
         if (!projectsExist()) {
           window.alert("You must create a project first!");
@@ -37,12 +38,12 @@ const View = (() => {
         }
         
         _modalBg.classList.remove("hidden");
-        _itemAddModal.classList.remove("hidden");
+        _todoModal.classList.remove("hidden");
       });
 
-    _itemCancelBtn.addEventListener("click", () => {
+    _todoCancelBtn.addEventListener("click", () => {
       _modalBg.classList.add("hidden");
-      _itemAddModal.classList.add("hidden");
+      _todoModal.classList.add("hidden");
     });
   }
 

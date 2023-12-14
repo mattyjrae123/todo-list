@@ -16,7 +16,7 @@
       <div>
         <h2>Lists</h2>
         <div id="sidebar-divider"></div>
-        <button class="add-btn" id="list-add-btn">+ add list</button>
+        <button class="add-btn" id="list-modal-btn">+ add list</button>
       </div>
       <div id="sidebar-list-container">
         <!-- <h3>Example 1</h3>
@@ -42,7 +42,7 @@
       </div>
     </div>
     <div id="main-content">
-      <button class="add-btn" id="item-add-btn">+ add item</button>
+      <button class="add-btn" id="todo-modal-btn">+ add todo</button>
       <ul id="todo-list">
         <!-- <li class="todo-li">
           <div class="li-priority">High</div>
@@ -90,7 +90,7 @@
   </div>
 
   <div id="modal-bg" class="hidden"></div>
-  <div class="modal-wrapper hidden" id="list-add-modal">
+  <div class="modal-wrapper hidden" id="list-modal">
     <form>
       <fieldset class="modal">
         <legend>New Todo List</legend>
@@ -102,7 +102,7 @@
       </fieldset>
     </form>
   </div>
-  <div class="modal-wrapper hidden" id="item-add-modal">
+  <div class="modal-wrapper hidden" id="todo-modal">
     <form>
       <fieldset class="modal">
         <legend>New Todo</legend>
@@ -119,8 +119,8 @@
         <textarea id="td-description" placeholder="Rinse with the garden hose.."></textarea>
         <label for="td-date">Date</label>
         <input id="td-date" type="date">
-        <button id="item-add-add" type="button" class="green-btn">Add</button>
-        <button id="item-add-cancel" type="button" class="red-btn">Cancel</button>
+        <button id="todo-add-add" type="button" class="green-btn">Add</button>
+        <button id="todo-add-cancel" type="button" class="red-btn">Cancel</button>
       </fieldset>
     </form>
   </div>
