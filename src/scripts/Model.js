@@ -27,6 +27,16 @@ const Model = (() => {
     return [..._projects];
   }
 
+  const getTodos = (projectId) => {
+    const projectIndex = _getProjectIndex(projectId);
+
+    if (projectIndex < 0) {
+      return;
+    }
+
+    return [..._projects[projectIndex].todos];
+  }
+
   const addItem = (projectId, priority, title, description, date) => {
     const projectIndex = _getProjectIndex(projectId);
 
@@ -48,7 +58,7 @@ const Model = (() => {
       title,
       description,
       date,
-      complete: false
+      isComplete: false
     };
 
     _projects[projectIndex].todos.push(todo);
@@ -133,6 +143,7 @@ const Model = (() => {
   return {
     addProject,
     getProjects,
+    getTodos,
     addItem,
     deleteItem
   }
