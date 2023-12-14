@@ -27,6 +27,10 @@ const Model = (() => {
     return [..._projects];
   }
 
+  const projectsExist = () => {
+    return _projects.length > 0;
+  }
+
   const getTodos = (projectId) => {
     const projectIndex = _getProjectIndex(projectId);
 
@@ -143,6 +147,7 @@ const Model = (() => {
   return {
     addProject,
     getProjects,
+    projectsExist,
     getTodos,
     addItem,
     deleteItem
