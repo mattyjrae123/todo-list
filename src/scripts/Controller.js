@@ -1,3 +1,6 @@
+import View from "./View";
+import Model from "./Model";
+
 /**
  * Controller
  * 
@@ -7,7 +10,18 @@
  */
 const Controller = (() => {
 
-  return {}
+  const start = () => {
+    Model.addProject('First');
+    Model.addProject('Second');
+    Model.addItem(1, 'low', 'example1', 'example1111111', '12/02/23');
+
+    console.log(Model.getProjects());
+    console.log(Model.getTodos(1));
+  }
+
+  return {
+    start
+  }
 
 })();
 
