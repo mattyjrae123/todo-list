@@ -55,9 +55,22 @@ const View = (() => {
   const displayProjects = (projects) => {
     _sidebarContainer.textContent = "";
     projects.forEach((project) => {
-      const projectHTML = document.createElement("h3");
-      projectHTML.textContent = project.title;
-      _sidebarContainer.appendChild(projectHTML);
+      const wrapper = document.createElement("div");
+      const title = document.createElement("h3");
+      const button = document.createElement("button");
+
+
+      wrapper.classList.add("project-wrapper");
+      button.classList.add("list-delete-btn");
+      button.classList.add("red-btn");
+
+      title.textContent = project.title;
+      button.textContent = "x";
+
+      wrapper.appendChild(title);
+      wrapper.appendChild(button);
+
+      _sidebarContainer.appendChild(wrapper);
     });
   }
 
