@@ -7,7 +7,14 @@
  */
 const View = (() => {
 
-  return {}
+  const modalBg = document.querySelector("#modal-bg");
+  const listAddModal = document.querySelector("#list-add-modal");
+
+  document.querySelector("#list-add-btn")
+  .addEventListener("click", () => {
+    modalBg.classList.remove("hidden");
+    listAddModal.classList.remove("hidden");
+  });
 
 })();
 
