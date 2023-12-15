@@ -11,8 +11,9 @@ import Model from "./Model";
 const Controller = (() => {
 
   const start = () => {
-    Model.addProject("Default");
-    Model.selectProject(1);
+    Model.init();
+    // Model.addProject("Default");
+    // Model.selectProject(1);
     View.initEventListeners();
     View.bindAddProjectHandler(_addProjectHandler);
     View.bindAddTodoHandler(_addTodoHandler);

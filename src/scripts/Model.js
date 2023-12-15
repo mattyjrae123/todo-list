@@ -6,8 +6,18 @@
  * M Rae 11/12/2023
  */
 const Model = (() => {
-  const _projects = [];
+  let _projects = [];
   let _currentProjectId;
+  let storageAvailable = false;
+
+  const init = () => {
+    if (_storageIsAvailable()) {
+      if (!_checkStorageExists()) {
+        addProject("Default");
+        selectProject(1);
+      }
+    }
+  }
 
   const addProject = (title) => {
     if (!_stringIsValid(title)) {
@@ -23,6 +33,10 @@ const Model = (() => {
       todos: []
     });
 
+    if (storageAvailable) {
+      _populateStorage();
+    }
+
     return true;
   }
 
@@ -30,6 +44,11 @@ const Model = (() => {
     for (let i = 0; i < _projects.length; i++) {
       if (_projects[i].id === id) {
         _projects.splice(i, 1);
+
+        if (storageAvailable) {
+          _populateStorage();
+        }
+
         return true;
       }
     }
@@ -39,6 +58,8 @@ const Model = (() => {
   
   const selectProject = (id) => {
     _currentProjectId = id;
+
+    _populateStorage();
   }
 
   const getCurrentProjectId = () => {
@@ -83,6 +104,10 @@ const Model = (() => {
     };
 
     _projects[projectIndex].todos.push(todo);
+
+    if (storageAvailable) {
+      _populateStorage();
+    }
     return true;
   }
 
@@ -113,6 +138,29 @@ const Model = (() => {
     }
 
     _projects[projectIndex].todos[todoIndex].isComplete = !_projects[projectIndex].todos[todoIndex].isComplete;
+  }
+
+  const _storageIsAvailable = () => {
+    try {
+      const x = "__storage_test__";
+      window.localStorage.setItem(x, x);
+      window.localStorage.removeItem(x);
+      storageAvailable = true;
+      return true;
+
+    } catch (e) {
+      return false;
+    }
+  }
+
+  const _checkStorageExists = () => {
+    if (!window.localStorage.getItem("projects")) {
+      _populateStorage();
+      return false;
+    }
+    _projects = JSON.parse(window.localStorage.getItem("projects"));
+    _currentProjectId = JSON.parse(window.localStorage.getItem("currentProject"));
+    return true;
   }
 
   const _generateProjectId = () => {
@@ -172,7 +220,13 @@ const Model = (() => {
     return true;
   }
 
+  const _populateStorage = () => {
+    window.localStorage.setItem("projects", JSON.stringify(_projects));
+    window.localStorage.setItem("currentProject", JSON.stringify(_currentProjectId));
+  }
+
   return {
+    init,
     addProject,
     deleteProject,
     selectProject,
