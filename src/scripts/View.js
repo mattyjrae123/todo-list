@@ -64,7 +64,14 @@ const View = (() => {
   }
 
   const bindSelectProjectHandler = (handler) => {
-    handler("0001");
+    const projectButtons = document.querySelectorAll("h3");
+
+    for (const projectButton of projectButtons) {
+      projectButton.addEventListener("click", () => {
+        const id = projectButton.getAttribute("data-id");
+        handler(id);
+      });
+    }
   }
 
   const displayProjects = (projects) => {
@@ -78,6 +85,8 @@ const View = (() => {
       wrapper.classList.add("project-wrapper");
       button.classList.add("list-delete-btn");
       button.classList.add("red-btn");
+
+      title.setAttribute("data-id", project.id);
       button.setAttribute("data-id", project.id);
 
       title.textContent = project.title;
