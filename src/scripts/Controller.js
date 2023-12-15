@@ -26,7 +26,7 @@ const Controller = (() => {
 
   const _deleteProjectHandler = (id) => {
     id = Number(id);
-    
+
     // Default project can't be deleted
     if (id === 1) {
       return;
@@ -48,11 +48,17 @@ const Controller = (() => {
     _updateView();
   }
 
+  const _addTodoHandler = (priority, title, description, date) => {
+    Model.addTodo(priority, title, description, date);
+    _updateView();
+  }
+
   const _updateView = () => {
     View.displayProjects(Model.getProjects());
     View.displayTodos(Model.getTodos(Model.getCurrentProjectId()));
     View.bindDeleteProjectHandler(_deleteProjectHandler);
     View.bindSelectProjectHandler(_selectProjectHandler);
+    View.bindAddTodoHandler(_addTodoHandler);
   }
 
   return {

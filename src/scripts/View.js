@@ -17,7 +17,13 @@ const View = (() => {
 
   const _todoModalBtn = document.querySelector("#todo-modal-btn");
   const _todoModal = document.querySelector("#todo-modal");
+  const _todoAddBtn = document.querySelector("#todo-add-btn");
   const _todoCancelBtn = document.querySelector("#todo-cancel-btn");
+
+  const _todoPriorityInput = document.querySelector("#td-priority");
+  const _todoTitleInput = document.querySelector("#td-title");
+  const _todoDescriptionInput = document.querySelector("#td-description");
+  const _todoDateInput = document.querySelector("#td-date");
 
   const initEventListeners = () => {
     _listModalBtn.addEventListener("click", () => {
@@ -74,6 +80,16 @@ const View = (() => {
     }
   }
 
+  const bindAddTodoHandler = (handler) => {
+    _todoAddBtn.addEventListener("click", () => {
+      const priority = _todoPriorityInput.value;
+      const title = _todoTitleInput.value;
+      const description = _todoDescriptionInput.value;
+      const date = _todoDateInput.value;
+      handler(priority, title, description, date);
+    });
+  }
+
   const displayProjects = (projects) => {
     _sidebarContainer.textContent = "";
     projects.forEach((project) => {
@@ -108,6 +124,7 @@ const View = (() => {
     bindAddProjectHandler,
     bindDeleteProjectHandler,
     bindSelectProjectHandler,
+    bindAddTodoHandler,
     displayProjects,
     displayTodos
   }

@@ -7,7 +7,7 @@
  */
 const Model = (() => {
   const _projects = [];
-  let currentProjectId;
+  let _currentProjectId;
 
   const addProject = (title) => {
     if (!_stringIsValid(title)) {
@@ -38,11 +38,11 @@ const Model = (() => {
   }
   
   const selectProject = (id) => {
-    currentProjectId = id;
+    _currentProjectId = id;
   }
 
   const getCurrentProjectId = () => {
-    return currentProjectId;
+    return _currentProjectId;
   }
 
   const getProjects = () => {
@@ -63,13 +63,13 @@ const Model = (() => {
     return [..._projects[projectIndex].todos];
   }
 
-  const addItem = (projectId, priority, title, description, date) => {
-    const projectIndex = _getProjectIndex(projectId);
+  const addTodo = (priority, title, description, date) => {
+    const projectIndex = _getProjectIndex(_currentProjectId);
 
-    if (projectIndex <= -1) {
-      console.error("Project ID invalid");
-      return false;
-    }
+    // if (projectIndex <= -1) {
+    //   console.error("Project ID invalid");
+    //   return false;
+    // }
 
     if (!(_stringIsValid(title) || _stringIsValid(description) || _stringIsValid(date))) {
       console.error("New todo item parameters invalid");
@@ -174,7 +174,7 @@ const Model = (() => {
     getCurrentProjectId,
     projectsExist,
     getTodos,
-    addItem,
+    addTodo,
     deleteItem
   }
 
