@@ -68,14 +68,6 @@ const View = (() => {
         handler(id);
       });
     }
-
-    // document.querySelectorAll(query)
-    //   .forEach(element => {
-    //     element.addEventListener("click", () => {
-    //       const id = element.getAttribute("data-id");
-    //       handler(id);
-    //     });
-    // });
   }
 
   const bindDeleteProjectHandler = (handler) => {
