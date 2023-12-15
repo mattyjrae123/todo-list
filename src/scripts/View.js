@@ -99,12 +99,17 @@ const View = (() => {
     });
   }
 
+  const displayTodos = (todos) => {
+    console.log(todos);
+  }
+
   return {
     initEventListeners,
     bindAddProjectHandler,
     bindDeleteProjectHandler,
     bindSelectProjectHandler,
-    displayProjects
+    displayProjects,
+    displayTodos
   }
 
 })();

@@ -7,7 +7,7 @@
  */
 const Model = (() => {
   const _projects = [];
-  let currentProject;
+  let currentProjectId;
 
   const addProject = (title) => {
     if (!_stringIsValid(title)) {
@@ -27,7 +27,6 @@ const Model = (() => {
   }
 
   const deleteProject = (id) => {
-    id = Number(id);
     for (let i = 0; i < _projects.length; i++) {
       if (_projects[i].id === id) {
         _projects.splice(i, 1);
@@ -39,7 +38,11 @@ const Model = (() => {
   }
   
   const selectProject = (id) => {
-    currentProject = id;
+    currentProjectId = id;
+  }
+
+  const getCurrentProjectId = () => {
+    return currentProjectId;
   }
 
   const getProjects = () => {
@@ -168,6 +171,7 @@ const Model = (() => {
     deleteProject,
     selectProject,
     getProjects,
+    getCurrentProjectId,
     projectsExist,
     getTodos,
     addItem,
