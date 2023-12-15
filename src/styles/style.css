@@ -95,7 +95,7 @@ header {
 
 #todo-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(min-content, 10%)) 1fr minmax(min-content, 10%) repeat(2, min-content);
+  grid-template-columns: repeat(2, minmax(min-content, 10%)) 1fr max-content repeat(2, min-content);
   align-items: center;
   gap: 0.5rem;
 
