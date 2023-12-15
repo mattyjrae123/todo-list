@@ -54,6 +54,12 @@ const Controller = (() => {
     _updateView();
   }
 
+  const _deleteTodoHandler = (id) => {
+    id = Number(id);
+    Model.deleteTodo(id);
+    _updateView();
+  }
+
   const _todoCompleteHandler = (id) => {
     id = Number(id);
     Model.toggleComplete(id);
@@ -66,6 +72,7 @@ const Controller = (() => {
     View.bindDeleteProjectHandler(_deleteProjectHandler);
     View.bindSelectProjectHandler(_selectProjectHandler);
     View.bindTodoCompleteHandler(_todoCompleteHandler);
+    View.bindDeleteTodoHandler(_deleteTodoHandler);
   }
 
   return {

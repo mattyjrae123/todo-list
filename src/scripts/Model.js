@@ -66,11 +66,6 @@ const Model = (() => {
   const addTodo = (priority, title, description, date) => {
     const projectIndex = _getProjectIndex(_currentProjectId);
 
-    // if (projectIndex <= -1) {
-    //   console.error("Project ID invalid");
-    //   return false;
-    // }
-
     if (!(_stringIsValid(title) || _stringIsValid(description) || _stringIsValid(date))) {
       console.error("New todo parameters invalid");
       return false;
@@ -91,17 +86,17 @@ const Model = (() => {
     return true;
   }
 
-  const deleteTodo = (projectId, todoId) => {
-    const projectIndex = _getProjectIndex(projectId);
+  const deleteTodo = (todoId) => {
+    const projectIndex = _getProjectIndex(getCurrentProjectId());
 
-    if (projectIndex <= -1) {
+    if (projectIndex < 0) {
       console.error("deleteTodo: projectId invalid");
       return;
     }
 
     const todoIndex = _getTodoIndex(projectIndex, todoId);
 
-    if (todoIndex <= -1) {
+    if (todoIndex < 0) {
       console.error("deleteTodo: todoId invalid");
       return;
     }
@@ -119,17 +114,6 @@ const Model = (() => {
 
     _projects[projectIndex].todos[todoIndex].isComplete = !_projects[projectIndex].todos[todoIndex].isComplete;
   }
-
-  // const setIncomplete = (id) => {
-  //   const projectIndex = _getProjectIndex(getCurrentProjectId());
-  //   const todoIndex = _getTodoIndex(projectIndex, id);
-
-  //   if (todoIndex < 0) {
-  //     return;
-  //   }
-
-  //   _projects[projectIndex].todos[todoIndex].isComplete = false;
-  // }
 
   const _generateProjectId = () => {
     if (_projects.length <= 0) {

@@ -91,6 +91,16 @@ const View = (() => {
     });
   }
 
+  const bindDeleteTodoHandler = (handler) => {
+    document.querySelectorAll(".todo-li .red-btn")
+      .forEach((button) => {
+        button.addEventListener("click", (e) => {
+          const id = e.target.parentElement.getAttribute("data-id");
+          handler(id);
+        });
+      });
+  }
+
   const bindTodoCompleteHandler = (handler) => {
     document.querySelectorAll(".todo-li .green-btn")
       .forEach((button) => {
@@ -180,6 +190,7 @@ const View = (() => {
     bindDeleteProjectHandler,
     bindSelectProjectHandler,
     bindAddTodoHandler,
+    bindDeleteTodoHandler,
     bindTodoCompleteHandler,
     displayProjects,
     displayTodos
