@@ -304,6 +304,7 @@ button:active{
 
 .green-btn {
   color: darkgreen;
+  border-radius: 10rem;
 }
 
 .green-btn:hover {

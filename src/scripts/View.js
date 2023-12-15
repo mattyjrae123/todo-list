@@ -121,28 +121,38 @@ const View = (() => {
   }
 
   const displayTodos = (todos) => {
+    _todoContainer.textContent = "";
+
     for (const todo of todos) {
       const li = document.createElement("li");
       const divPriority = document.createElement("div");
       const divTitle = document.createElement("div");
       const divDescription = document.createElement("div");
       const divDate = document.createElement("div");
+      const completeButton = document.createElement("button");
+      const deleteButton = document.createElement("button");
 
       li.classList.add("todo-li");
       divPriority.classList.add("li-priority");
       divTitle.classList.add("li-title");
       divDescription.classList.add("li-description");
       divDate.classList.add("li-date");
+      completeButton.classList.add("green-btn");
+      deleteButton.classList.add("red-btn");
 
       divPriority.textContent = todo.priority;
       divTitle.textContent = todo.title;
       divDescription.textContent = todo.description;
       divDate.textContent = todo.date;
+      completeButton.innerHTML = "&#x2713;"; //UNICODE for check-mark
+      deleteButton.textContent = "X";
 
       li.appendChild(divPriority);
       li.appendChild(divTitle);
       li.appendChild(divDescription);
       li.appendChild(divDate);
+      li.appendChild(completeButton);
+      li.appendChild(deleteButton);
 
       _todoContainer.appendChild(li);
     }

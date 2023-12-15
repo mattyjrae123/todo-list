@@ -15,6 +15,7 @@ const Controller = (() => {
     Model.selectProject(1);
     View.initEventListeners();
     View.bindAddProjectHandler(_addProjectHandler);
+    View.bindAddTodoHandler(_addTodoHandler);
     _updateView();
   }
 
@@ -58,7 +59,6 @@ const Controller = (() => {
     View.displayTodos(Model.getTodos(Model.getCurrentProjectId()));
     View.bindDeleteProjectHandler(_deleteProjectHandler);
     View.bindSelectProjectHandler(_selectProjectHandler);
-    View.bindAddTodoHandler(_addTodoHandler);
   }
 
   return {

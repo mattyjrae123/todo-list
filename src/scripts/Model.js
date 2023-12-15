@@ -72,7 +72,7 @@ const Model = (() => {
     // }
 
     if (!(_stringIsValid(title) || _stringIsValid(description) || _stringIsValid(date))) {
-      console.error("New todo item parameters invalid");
+      console.error("New todo parameters invalid");
       return false;
     }
 
@@ -91,22 +91,22 @@ const Model = (() => {
     return true;
   }
 
-  const deleteItem = (projectId, itemId) => {
+  const deleteTodo = (projectId, todoId) => {
     const projectIndex = _getProjectIndex(projectId);
 
     if (projectIndex <= -1) {
-      console.error("deleteItem: projectId invalid");
+      console.error("deleteTodo: projectId invalid");
       return;
     }
 
-    const itemIndex = _getItemIndex(projectIndex, itemId);
+    const todoIndex = _getTodoIndex(projectIndex, todoId);
 
-    if (itemIndex <= -1) {
-      console.error("deleteItem: itemId invalid");
+    if (todoIndex <= -1) {
+      console.error("deleteTodo: todoId invalid");
       return;
     }
 
-    _projects[projectIndex].todos.splice(itemIndex, 1);
+    _projects[projectIndex].todos.splice(todoIndex, 1);
   }
 
   const _generateProjectId = () => {
@@ -140,13 +140,13 @@ const Model = (() => {
     return -1;
   }
 
-  const _getItemIndex = (projectIndex, itemId) => {
-    if (!(typeof itemId === 'number' || itemId instanceof Number)) {
+  const _getTodoIndex = (projectIndex, todoId) => {
+    if (!(typeof todoId === 'number' || todoId instanceof Number)) {
       return -1;
     }
     const todos = _projects[projectIndex].todos;
     for (let i = 0; i < todos.length; i++) {
-      if (todos[i].id === itemId) {
+      if (todos[i].id === todoId) {
         return i;
       }
     }
@@ -175,7 +175,7 @@ const Model = (() => {
     projectsExist,
     getTodos,
     addTodo,
-    deleteItem
+    deleteTodo
   }
 
 })();
