@@ -90,7 +90,7 @@ const View = (() => {
     });
   }
 
-  const displayProjects = (projects) => {
+  const displayProjects = (currentProjectId, projects) => {
     _sidebarContainer.textContent = "";
     projects.forEach((project) => {
       const wrapper = document.createElement("div");
@@ -101,6 +101,10 @@ const View = (() => {
       wrapper.classList.add("project-wrapper");
       button.classList.add("list-delete-btn");
       button.classList.add("red-btn");
+
+      if (currentProjectId === project.id) {
+        title.classList.add("current-list");
+      }
 
       title.setAttribute("data-id", project.id);
       button.setAttribute("data-id", project.id);

@@ -54,7 +54,7 @@ const Controller = (() => {
   }
 
   const _updateView = () => {
-    View.displayProjects(Model.getProjects());
+    View.displayProjects(Model.getCurrentProjectId(), Model.getProjects());
     View.displayTodos(Model.getTodos(Model.getCurrentProjectId()));
     View.bindDeleteProjectHandler(_deleteProjectHandler);
     View.bindSelectProjectHandler(_selectProjectHandler);
