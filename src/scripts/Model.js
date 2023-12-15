@@ -7,6 +7,7 @@
  */
 const Model = (() => {
   const _projects = [];
+  let currentProject;
 
   const addProject = (title) => {
     if (!_stringIsValid(title)) {
@@ -35,6 +36,10 @@ const Model = (() => {
     }
 
     return false;
+  }
+  
+  const selectProject = (id) => {
+    currentProject = id;
   }
 
   const getProjects = () => {
@@ -161,6 +166,7 @@ const Model = (() => {
   return {
     addProject,
     deleteProject,
+    selectProject,
     getProjects,
     projectsExist,
     getTodos,

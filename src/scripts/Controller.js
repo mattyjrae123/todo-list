@@ -28,7 +28,7 @@ const Controller = (() => {
   }
 
   const _selectProjectHandler = (id) => {
-    console.log(`id: ${id} selected`);
+    Model.selectProject(id);
   }
 
   const _updateView = () => {
