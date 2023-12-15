@@ -59,26 +59,39 @@ const View = (() => {
     });
   }
 
-  const bindDeleteProjectHandler = (handler) => {
-    const projectDeleteButtons = document.querySelectorAll(".list-delete-btn");
+  const _bindDynamicHandlers = (query, handler) => {
+    const elements = document.querySelectorAll(query);
 
-    for (const button of projectDeleteButtons) {
-      button.addEventListener("click", () => {
-        const id = button.getAttribute("data-id");
+    for (const element of elements) {
+      element.addEventListener(("click"), () => {
+        const id = element.getAttribute("data-id");
         handler(id);
       });
     }
+
+    // document.querySelectorAll(query)
+    //   .forEach(element => {
+    //     element.addEventListener("click", () => {
+    //       const id = element.getAttribute("data-id");
+    //       handler(id);
+    //     });
+    // });
+  }
+
+  const bindDeleteProjectHandler = (handler) => {
+    _bindDynamicHandlers(".list-delete-btn", handler);
   }
 
   const bindSelectProjectHandler = (handler) => {
-    const projectButtons = document.querySelectorAll("h3");
+    _bindDynamicHandlers("h3", handler);
+  }
 
-    for (const projectButton of projectButtons) {
-      projectButton.addEventListener("click", () => {
-        const id = projectButton.getAttribute("data-id");
-        handler(id);
-      });
-    }
+  const bindDeleteTodoHandler = (handler) => {
+    _bindDynamicHandlers(".todo-li .red-btn", handler);
+  }
+
+  const bindTodoCompleteHandler = (handler) => {
+      _bindDynamicHandlers(".todo-li .green-btn", handler);
   }
 
   const bindAddTodoHandler = (handler) => {
@@ -89,26 +102,6 @@ const View = (() => {
       const date = _todoDateInput.value;
       handler(priority, title, description, date);
     });
-  }
-
-  const bindDeleteTodoHandler = (handler) => {
-    document.querySelectorAll(".todo-li .red-btn")
-      .forEach((button) => {
-        button.addEventListener("click", (e) => {
-          const id = e.target.parentElement.getAttribute("data-id");
-          handler(id);
-        });
-      });
-  }
-
-  const bindTodoCompleteHandler = (handler) => {
-    document.querySelectorAll(".todo-li .green-btn")
-      .forEach((button) => {
-        button.addEventListener("click", (e) => {
-          const id = e.target.parentElement.getAttribute("data-id");
-          handler(id);
-        });
-      });
   }
 
   const displayProjects = (currentProjectId, projects) => {
@@ -165,6 +158,8 @@ const View = (() => {
       }
 
       li.setAttribute("data-id", todo.id);
+      completeButton.setAttribute("data-id", todo.id);
+      deleteButton.setAttribute("data-id", todo.id);
 
       divPriority.textContent = todo.priority;
       divTitle.textContent = todo.title;
