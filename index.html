@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+<script defer src="main.js"></script></head>
+
+<body>
+  <div id="body-wrapper">
+    <header>
+      <h1>Todo</h1>
+    </header>
+    <div id="sidebar">
+      <div>
+        <h2>Lists</h2>
+        <div id="sidebar-divider"></div>
+        <button class="add-btn" id="list-modal-btn">+ add list</button>
+      </div>
+      <div id="sidebar-list-container"></div>
+    </div>
+    <div id="main-content">
+      <button class="add-btn" id="todo-modal-btn">+ add todo</button>
+      <ul id="todo-list"></ul>
+    </div>
+    <footer>
+      <div>Created by M. Rae</div>
+      <div id="footer-divider"></div>
+      <div><a id="github-repo-link" href="https://github.com/mattyjrae123/todo-list" target="_blank">View Code</a></div>
+    </footer>
+  </div>
+
+  <div id="modal-bg" class="hidden"></div>
+  <div class="modal-wrapper hidden" id="list-modal">
+    <form>
+      <fieldset class="modal">
+        <legend>New Todo List</legend>
+
+        <label for="new-list-title">Title</label>
+        <input type="text" id="new-list-title" placeholder="e.g. shopping list...">
+        <button id="list-add-btn" type="button" class="green-btn">Add</button>
+        <button id="list-cancel-btn" type="button" class="red-btn">Cancel</button>
+      </fieldset>
+    </form>
+  </div>
+  <div class="modal-wrapper hidden" id="todo-modal">
+    <form>
+      <fieldset class="modal">
+        <legend>New Todo</legend>
+
+        <label for="td-priority">Priority</label>
+        <select id="td-priority">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+        <label for="td-title">Title</label>
+        <input type="text" id="td-title" placeholder="Clean fridge...">
+        <label for="td-description">Description</label>
+        <textarea id="td-description" placeholder="Rinse with the garden hose.."></textarea>
+        <label for="td-date">Date</label>
+        <input id="td-date" type="date">
+        <button id="todo-add-btn" type="button" class="green-btn">Add</button>
+        <button id="todo-cancel-btn" type="button" class="red-btn">Cancel</button>
+      </fieldset>
+    </form>
+  </div>
+</body>
+
+</html>
