@@ -52,7 +52,7 @@ const View = (() => {
     });
   }
 
-  const bindDeleteProjectHandlers = (handler) => {
+  const bindDeleteProjectHandler = (handler) => {
     const projectDeleteButtons = document.querySelectorAll(".list-delete-btn");
 
     for (const button of projectDeleteButtons) {
@@ -61,6 +61,10 @@ const View = (() => {
         handler(id);
       });
     }
+  }
+
+  const bindSelectProjectHandler = (handler) => {
+    handler("0001");
   }
 
   const displayProjects = (projects) => {
@@ -89,7 +93,8 @@ const View = (() => {
   return {
     initEventListeners,
     bindAddProjectHandler,
-    bindDeleteProjectHandlers,
+    bindDeleteProjectHandler,
+    bindSelectProjectHandler,
     displayProjects
   }
 

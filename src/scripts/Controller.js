@@ -27,9 +27,14 @@ const Controller = (() => {
     }
   }
 
+  const _selectProjectHandler = (id) => {
+    console.log(`id: ${id} selected`);
+  }
+
   const _updateView = () => {
     View.displayProjects(Model.getProjects());
-    View.bindDeleteProjectHandlers(_deleteProjectHandler);
+    View.bindDeleteProjectHandler(_deleteProjectHandler);
+    View.bindSelectProjectHandler(_selectProjectHandler);
   }
 
   return {
