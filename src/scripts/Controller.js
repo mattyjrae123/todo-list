@@ -12,16 +12,16 @@ const Controller = (() => {
 
   const start = () => {
     View.initEventListeners();
-    View.bindAddProjectHandler(addProjectHandler);
+    View.bindAddProjectHandler(_addProjectHandler);
   }
 
-  const addProjectHandler = (title) => {
+  const _addProjectHandler = (title) => {
     if (Model.addProject(title)) {
       _updateView();
     }
   }
 
-  const deleteProjectHandler = (id) => {
+  const _deleteProjectHandler = (id) => {
     if (Model.deleteProject(id)) {
       _updateView();
     }
@@ -29,7 +29,7 @@ const Controller = (() => {
 
   const _updateView = () => {
     View.displayProjects(Model.getProjects());
-    View.bindDeleteProjectHandlers(deleteProjectHandler);
+    View.bindDeleteProjectHandlers(_deleteProjectHandler);
   }
 
   return {
