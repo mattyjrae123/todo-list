@@ -109,6 +109,28 @@ const Model = (() => {
     _projects[projectIndex].todos.splice(todoIndex, 1);
   }
 
+  const toggleComplete = (id) => {
+    const projectIndex = _getProjectIndex(getCurrentProjectId());
+    const todoIndex = _getTodoIndex(projectIndex, id);
+
+    if (projectIndex < 0 || todoIndex < 0) {
+      return;
+    }
+
+    _projects[projectIndex].todos[todoIndex].isComplete = !_projects[projectIndex].todos[todoIndex].isComplete;
+  }
+
+  // const setIncomplete = (id) => {
+  //   const projectIndex = _getProjectIndex(getCurrentProjectId());
+  //   const todoIndex = _getTodoIndex(projectIndex, id);
+
+  //   if (todoIndex < 0) {
+  //     return;
+  //   }
+
+  //   _projects[projectIndex].todos[todoIndex].isComplete = false;
+  // }
+
   const _generateProjectId = () => {
     if (_projects.length <= 0) {
       return 1;
@@ -175,7 +197,8 @@ const Model = (() => {
     projectsExist,
     getTodos,
     addTodo,
-    deleteTodo
+    deleteTodo,
+    toggleComplete
   }
 
 })();

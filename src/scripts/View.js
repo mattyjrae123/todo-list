@@ -91,6 +91,16 @@ const View = (() => {
     });
   }
 
+  const bindTodoCompleteHandler = (handler) => {
+    document.querySelectorAll(".todo-li .green-btn")
+      .forEach((button) => {
+        button.addEventListener("click", (e) => {
+          const id = e.target.parentElement.getAttribute("data-id");
+          handler(id);
+        });
+      });
+  }
+
   const displayProjects = (currentProjectId, projects) => {
     _sidebarContainer.textContent = "";
     projects.forEach((project) => {
@@ -140,6 +150,12 @@ const View = (() => {
       completeButton.classList.add("green-btn");
       deleteButton.classList.add("red-btn");
 
+      if (todo.isComplete) {
+        li.classList.add("li-inactive");
+      }
+
+      li.setAttribute("data-id", todo.id);
+
       divPriority.textContent = todo.priority;
       divTitle.textContent = todo.title;
       divDescription.textContent = todo.description;
@@ -164,6 +180,7 @@ const View = (() => {
     bindDeleteProjectHandler,
     bindSelectProjectHandler,
     bindAddTodoHandler,
+    bindTodoCompleteHandler,
     displayProjects,
     displayTodos
   }

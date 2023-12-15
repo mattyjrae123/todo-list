@@ -54,11 +54,18 @@ const Controller = (() => {
     _updateView();
   }
 
+  const _todoCompleteHandler = (id) => {
+    id = Number(id);
+    Model.toggleComplete(id);
+    _updateView();
+  }
+
   const _updateView = () => {
     View.displayProjects(Model.getCurrentProjectId(), Model.getProjects());
     View.displayTodos(Model.getTodos(Model.getCurrentProjectId()));
     View.bindDeleteProjectHandler(_deleteProjectHandler);
     View.bindSelectProjectHandler(_selectProjectHandler);
+    View.bindTodoCompleteHandler(_todoCompleteHandler);
   }
 
   return {
