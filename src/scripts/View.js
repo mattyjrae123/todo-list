@@ -20,6 +20,7 @@ const View = (() => {
   const _todoAddBtn = document.querySelector("#todo-add-btn");
   const _todoCancelBtn = document.querySelector("#todo-cancel-btn");
 
+  const _todoContainer = document.querySelector("#todo-list");
   const _todoPriorityInput = document.querySelector("#td-priority");
   const _todoTitleInput = document.querySelector("#td-title");
   const _todoDescriptionInput = document.querySelector("#td-description");
@@ -120,7 +121,31 @@ const View = (() => {
   }
 
   const displayTodos = (todos) => {
-    console.log(todos);
+    for (const todo of todos) {
+      const li = document.createElement("li");
+      const divPriority = document.createElement("div");
+      const divTitle = document.createElement("div");
+      const divDescription = document.createElement("div");
+      const divDate = document.createElement("div");
+
+      li.classList.add("todo-li");
+      divPriority.classList.add("li-priority");
+      divTitle.classList.add("li-title");
+      divDescription.classList.add("li-description");
+      divDate.classList.add("li-date");
+
+      divPriority.textContent = todo.priority;
+      divTitle.textContent = todo.title;
+      divDescription.textContent = todo.description;
+      divDate.textContent = todo.date;
+
+      li.appendChild(divPriority);
+      li.appendChild(divTitle);
+      li.appendChild(divDescription);
+      li.appendChild(divDate);
+
+      _todoContainer.appendChild(li);
+    }
   }
 
   return {
